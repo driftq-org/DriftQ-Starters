@@ -7,8 +7,7 @@ These are intentionally small repos you can use as a baseline when you’re buil
 - DLQ (dead-letter queue)
 - replay
 - safe side effects (idempotency)
-
----
+- versioned indexes + rollback (RAG)
 
 ## Templates
 
@@ -43,7 +42,19 @@ It shows a clean pattern:
 
 ---
 
-## DriftQ-Core (the engine)
+### 3) driftq-rag-index-demo — versioned RAG index build + replay + rollback (Qdrant)
+A small, production-minded demo that shows how to:
+- use DriftQ-Core (via Docker) as a task queue + redelivery engine
+- build and version a tiny **Qdrant** RAG index
+- replay failed runs safely
+- roll back an index by switching a Qdrant alias
+
+Runs locally inside Docker (no local Python or jq needed).
+
+**Repo:** https://github.com/driftq-org/driftq-rag-index-demo
+**Best for:** RAG ingestion/index builds, versioning + alias-based rollback, replayable pipelines
+
+## DriftQ-Core
 These starters are just templates. The engine lives here:
 
 https://github.com/driftq-org/DriftQ-Core
